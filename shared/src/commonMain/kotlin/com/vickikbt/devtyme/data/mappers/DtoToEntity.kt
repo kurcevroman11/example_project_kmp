@@ -1,7 +1,7 @@
 package com.vickikbt.devtyme.data.mappers
 
-import com.vickikbt.devtyme.data.cache.sqldelight.AccessTokenEntity
 import com.vickikbt.devtyme.data.network.models.AccessTokenDto
+import database.AccessTokenEntity
 
 internal fun AccessTokenDto.toEntity(): AccessTokenEntity {
     return AccessTokenEntity(

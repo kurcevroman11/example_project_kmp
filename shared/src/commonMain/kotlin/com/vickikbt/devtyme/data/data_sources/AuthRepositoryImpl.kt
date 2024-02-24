@@ -1,13 +1,13 @@
 package com.vickikbt.devtyme.data.data_sources
 
 import com.vickikbt.devtyme.data.cache.sqldelight.AccessTokenDao
-import com.vickikbt.devtyme.data.cache.sqldelight.AccessTokenEntity
 import com.vickikbt.devtyme.data.mappers.toDomain
 import com.vickikbt.devtyme.data.mappers.toEntity
 import com.vickikbt.devtyme.data.network.ApiService
 import com.vickikbt.devtyme.data.network.models.CurrentUserDto
 import com.vickikbt.devtyme.domain.models.AccessToken
 import com.vickikbt.devtyme.domain.repositories.AuthRepository
+import database.AccessTokenEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map

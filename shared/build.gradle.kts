@@ -1,12 +1,12 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    kotlin("plugin.serialization") version Versions.kotlinSerialization
-    id("com.squareup.sqldelight")
+    kotlin("plugin.serialization")
+    id("app.cash.sqldelight")
 }
 
 kotlin {
-    android()
+    androidTarget()
 
     listOf(
         iosX64(),
@@ -59,7 +59,7 @@ kotlin {
 
             dependencies {
                 implementation(KmmDependencies.ktoriOS)
-                implementation(KmmDependencies.sqlDelightIos)
+                //implementation(KmmDependencies.sqlDelightIos)
             }
         }
 
@@ -69,31 +69,30 @@ kotlin {
                 // implementation(KmmDependencies.mockk)
             }
         }
-
-        val androidTest by getting
-
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-        }
+    }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "11"
     }
 }
 
 android {
+    namespace = "com.vickikbt.devtyme"
     compileSdk = AndroidSdk.compileSdkVersion
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = AndroidSdk.minSdkVersion
         targetSdk = AndroidSdk.targetSdkVersion
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
 sqldelight {
-    database(name = "AppDatabase") {
-        packageName = "com.vickikbt.devtyme.data.cache.sqldelight"
-        sourceFolders = listOf("kotlin")
+    databases {
+        create("AppDatabase") {
+            packageName.set("com.vickikbt.devtyme.core.database")
+        }
     }
 }

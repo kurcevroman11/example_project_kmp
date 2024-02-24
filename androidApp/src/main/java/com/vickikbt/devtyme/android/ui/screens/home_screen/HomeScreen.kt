@@ -357,7 +357,6 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = getViewM
                         showDialog = showDailyGoalDialog,
                         dailyGoal = dailyGoal?.toInt() ?: 0,
                         onPositiveActionClicked = {
-                            viewModel.saveDailyGoal(hours = it)
                             showDailyGoalDialog = false
                         },
                         onNegativeActionClicked = { showDailyGoalDialog = false }

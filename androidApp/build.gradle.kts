@@ -1,10 +1,10 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    kotlin("android")
 }
 
 android {
+    namespace = "com.vickikbt.devtyme.android"
     compileSdk = AndroidSdk.compileSdkVersion
 
     defaultConfig {
@@ -24,12 +24,9 @@ android {
     buildFeatures {
         compose = true
     }
-
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
-        // kotlinCompilerVersion = Versions.composeCompiler
+        kotlinCompilerExtensionVersion = Versions.composeCompiler
     }
-
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -44,51 +41,47 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
-        isCoreLibraryDesugaringEnabled = true
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
-    kotlinOptions { jvmTarget = JavaVersion.VERSION_1_8.toString() }
+    dependencies {
+        implementation(project(":shared"))
 
-    lintOptions {
-        isAbortOnError = false
+        implementation(AndroidDependencies.androidCore)
+        implementation(AndroidDependencies.appCompat)
+
+        implementation(AndroidDependencies.material)
+
+        implementation(AndroidDependencies.composeUi)
+        implementation(AndroidDependencies.composeMaterial)
+        implementation(AndroidDependencies.composeTooling)
+        implementation(AndroidDependencies.composeConstraint)
+        implementation(AndroidDependencies.composeLiveData)
+        implementation(AndroidDependencies.composeActivity)
+
+        implementation(AndroidDependencies.lifeCycleRuntime)
+
+        // Koin-Dependency injection
+        implementation(AndroidDependencies.koinAndroid)
+        implementation(AndroidDependencies.koinCompose)
+
+        // Accompanist Libs
+        implementation(AndroidDependencies.accompanistNavigationAnimation)
+
+        // Splash Screen API
+        implementation(AndroidDependencies.splashScreen)
+
+        // Coil-Image Loader
+        implementation(AndroidDependencies.coil)
+
+        // Compose Navigation-Navigation between various screens
+        implementation(AndroidDependencies.navigation)
+
+        coreLibraryDesugaring(AndroidDependencies.desugaring)
+
+        // Lottie Compose
+        implementation(AndroidDependencies.lottie)
     }
-}
-
-dependencies {
-    implementation(project(":shared"))
-
-    implementation(AndroidDependencies.androidCore)
-    implementation(AndroidDependencies.appCompat)
-
-    implementation(AndroidDependencies.material)
-
-    implementation(AndroidDependencies.composeUi)
-    implementation(AndroidDependencies.composeMaterial)
-    implementation(AndroidDependencies.composeTooling)
-    implementation(AndroidDependencies.composeConstraint)
-    implementation(AndroidDependencies.composeLiveData)
-    implementation(AndroidDependencies.composeActivity)
-
-    implementation(AndroidDependencies.lifeCycleRuntime)
-
-    // Koin-Dependency injection
-    implementation(AndroidDependencies.koinAndroid)
-    implementation(AndroidDependencies.koinCompose)
-
-    // Accompanist Libs
-    implementation(AndroidDependencies.accompanistNavigationAnimation)
-
-    // Splash Screen API
-    implementation(AndroidDependencies.splashScreen)
-
-    // Coil-Image Loader
-    implementation(AndroidDependencies.coil)
-
-    // Compose Navigation-Navigation between various screens
-    implementation(AndroidDependencies.navigation)
-
-    coreLibraryDesugaring(AndroidDependencies.desugaring)
-
-    // Lottie Compose
-    implementation(AndroidDependencies.lottie)
 }

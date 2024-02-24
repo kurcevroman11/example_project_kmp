@@ -1,8 +1,8 @@
 package com.vickikbt.devtyme.domain.repositories
 
-import com.vickikbt.devtyme.data.cache.sqldelight.AccessTokenEntity
 import com.vickikbt.devtyme.data.network.models.CurrentUserDto
 import com.vickikbt.devtyme.domain.models.AccessToken
+import database.AccessTokenEntity
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {

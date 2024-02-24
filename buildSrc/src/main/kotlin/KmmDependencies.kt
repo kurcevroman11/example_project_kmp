@@ -15,11 +15,11 @@ object KmmDependencies {
     const val ktoriOS = "io.ktor:ktor-client-ios:${Versions.ktor}"
     const val ktorClientAuth = "io.ktor:ktor-client-auth:${Versions.ktor}"
 
-    const val sqlDelight = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
+    const val sqlDelight = "app.cash.sqldelight:runtime:${Versions.sqlDelight}"
     const val sqlDelightCoroutine =
-        "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
-    const val sqlDelightAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
-    const val sqlDelightIos = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+        "app.cash.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
+    const val sqlDelightAndroid = "app.cash.sqldelight:android-driver:${Versions.sqlDelight}"
+    const val sqlDelightIos = "app.cash.sqldelight:native-driver:${Versions.sqlDelight}"
 
     const val napier = "io.github.aakira:napier:${Versions.napier}"
 

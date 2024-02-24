@@ -1,14 +1,18 @@
-buildscript {
+plugins {
+    //trick: for the same plugin versions in all sub-modules
+    kotlin("android").version("1.9.0").apply(false)
+    kotlin("multiplatform").version("1.9.0").apply(false)
+    kotlin("plugin.serialization") version "1.8.10" apply false
+    id("app.cash.sqldelight") version "2.0.0-alpha05" apply false
+    id("com.android.application") version "8.1.2" apply false
+    id("com.android.library") version "8.1.2" apply false
+    id("org.jetbrains.compose") version "1.3.1" apply false
+}
 
+allprojects {
     repositories {
         google()
         mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:${Versions.gradle}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-        classpath("com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}")
-        // classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}")
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }

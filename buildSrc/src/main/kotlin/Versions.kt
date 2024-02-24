@@ -4,7 +4,7 @@ object Versions {
     const val kotlinSerialization = "1.6.10"
     const val kotlinxSerialization = "1.2.2"
     const val kotlinxCoroutines = "1.6.0"
-    const val sqlDelight = "1.5.3"
+    const val sqlDelight = "2.0.0-alpha05"
     const val napier = "2.4.0"
     const val kotlinxDateTime = "0.3.2"
     const val multiplatformSettings = "0.8.1"
@@ -13,7 +13,7 @@ object Versions {
     const val mockk = "1.12.3"
 
     const val gradle = "7.1.1"
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.8.20"
     const val detekt = "1.19.0"
     const val desugaring = "1.1.5"
 
@@ -23,7 +23,7 @@ object Versions {
 
     const val compose = "1.1.0"
     const val composeActivity = "1.4.0"
-    const val composeCompiler = "1.5.21"
+    const val composeCompiler = "1.5.1"
     const val composeConstraint = "1.0.0-rc01"
 
     const val lifecycle = "2.4.0"

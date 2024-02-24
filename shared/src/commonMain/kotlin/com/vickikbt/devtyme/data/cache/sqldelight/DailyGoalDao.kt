@@ -1,6 +1,7 @@
 package com.vickikbt.devtyme.data.cache.sqldelight
 
-import com.squareup.sqldelight.runtime.coroutines.asFlow
+import app.cash.sqldelight.coroutines.asFlow
+import com.vickikbt.devtyme.core.database.AppDatabase
 import com.vickikbt.devtyme.domain.utils.DatabaseDriverFactory
 import kotlinx.coroutines.flow.map
 

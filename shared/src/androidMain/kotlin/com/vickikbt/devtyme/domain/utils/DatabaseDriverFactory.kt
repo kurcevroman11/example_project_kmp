@@ -1,9 +1,9 @@
 package com.vickikbt.devtyme.domain.utils
 
 import android.content.Context
-import com.squareup.sqldelight.android.AndroidSqliteDriver
-import com.squareup.sqldelight.db.SqlDriver
-import com.vickikbt.devtyme.data.cache.sqldelight.AppDatabase
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
+import com.vickikbt.devtyme.core.database.AppDatabase
 
 actual class DatabaseDriverFactory(private val context: Context) {
     actual fun createDriver(): SqlDriver {
